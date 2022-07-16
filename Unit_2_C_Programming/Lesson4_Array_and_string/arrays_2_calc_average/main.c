@@ -22,6 +22,7 @@ int main()
 	}
 	printf("Average = %.2f", sum/size);
 
+
 	return 0;
 }
 
