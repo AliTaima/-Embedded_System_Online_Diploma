@@ -12,7 +12,7 @@ int main()
 	printf("Enter a character: ");
 	fflush(stdin);fflush(stdout);
 	scanf("%c", &c);
-	if((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		printf("%c is an alphabet.", c);
 	else
 		printf("%c is not an alphabet.", c);
