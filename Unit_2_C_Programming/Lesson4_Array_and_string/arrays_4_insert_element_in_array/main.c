@@ -10,7 +10,7 @@ int main()
 {
 	int size = 1000, temp_size, i, elem, location;
 	int arr[size];
-	printf("Enter no of elemments: ");
+	printf("Enter no of elements: ");
 	fflush(stdin);fflush(stdout);
 	scanf("%d", &temp_size);
 	for(i = 0; i<temp_size; i++)
@@ -20,10 +20,10 @@ int main()
 		printf("%d ", arr[i]);
 	}
 	temp_size ++;
-	printf("\nEnter the elemment to be inserted: ");
+	printf("\nEnter the element to be inserted: ");
 	fflush(stdin);fflush(stdout);
 	scanf("%d", &elem);
-	printf("Enter the elemment to be inserted: ");
+	printf("Enter the element to be inserted: ");
 	fflush(stdin);fflush(stdout);
 	scanf("%d", &location);
 	for(i = temp_size - 1; i>0; i--)
