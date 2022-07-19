@@ -14,7 +14,7 @@
 ![](Screenshots/HW1/ex6.png)
 ### Ex7
 ![](Screenshots/HW1/ex7.png)
-## Homework 1
+## Homework 2
 ### Ex1
 ![](Screenshots/HW2/ex1.png)
 ### Ex2
