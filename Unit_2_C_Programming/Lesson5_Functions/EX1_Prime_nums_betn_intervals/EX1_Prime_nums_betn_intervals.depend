@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659200422 source:b:\files_of_programes\codeblocks\c\ex1_prime_nums_betn_intervals\main.c
+	<stdio.h>
+	<stdlib.h>
+
