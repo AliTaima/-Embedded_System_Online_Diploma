@@ -29,6 +29,7 @@ int PBI(int num1, int num2, int prime[])
         {
             if(i%j == 0)
             {
+                //break the for loop in case of the num doesn't satisfy the prime condition
                 flag = 1;
                 break;
             }
@@ -36,6 +37,7 @@ int PBI(int num1, int num2, int prime[])
         }
         if(flag == 0)
         {
+            // count the number of prime numbers that I store in the prime array
             prime[count] = i;
             count ++;
         }
