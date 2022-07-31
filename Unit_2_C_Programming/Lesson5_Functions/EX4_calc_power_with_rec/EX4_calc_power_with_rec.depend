@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659262114 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson5_functions\ex4_calc_power_with_rec\main.c
+	<stdio.h>
+	<stdlib.h>
+
