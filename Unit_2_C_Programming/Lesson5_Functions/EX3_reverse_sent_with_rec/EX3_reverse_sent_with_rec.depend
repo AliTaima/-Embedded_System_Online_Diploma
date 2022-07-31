@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659268042 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson5_functions\ex3_reverse_sent_with_rec\main.c
+	<stdio.h>
+	<stdlib.h>
+
