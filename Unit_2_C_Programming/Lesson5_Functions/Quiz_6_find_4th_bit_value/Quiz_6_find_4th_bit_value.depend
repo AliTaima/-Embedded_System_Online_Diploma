@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659700392 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson5_functions\quiz_6_find_4th_bit_value\main.c
+	<stdio.h>
+	<stdlib.h>
+

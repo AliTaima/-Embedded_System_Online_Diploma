@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659700154 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson5_structures\quiz_5_clear_specific_bit\main.c
+	<stdio.h>
+	<stdlib.h>
+
