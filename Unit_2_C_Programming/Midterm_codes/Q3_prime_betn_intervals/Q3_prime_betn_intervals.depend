@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659556691 source:b:\embedded_systems_online_diploma\unit_2_c_programming\midterm codes\q3_prime_betn_intervals\main.c
+	<stdio.h>
+	<stdlib.h>
+

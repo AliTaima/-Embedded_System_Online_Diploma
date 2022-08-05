@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659604690 source:b:\embedded_systems_online_diploma\unit_2_c_programming\midterm codes\q7_fun_sum_nums_1_100\main.c
+	<stdio.h>
+	<stdlib.h>
+
