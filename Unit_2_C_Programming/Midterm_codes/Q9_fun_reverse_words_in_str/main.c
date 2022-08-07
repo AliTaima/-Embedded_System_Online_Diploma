@@ -13,39 +13,31 @@ int main()
     return 0;
 }
 
-void rev_word_str(char str[100], int size)
+void rev_word_str(char str[], int size)
 {
-    int a, b, t = 0, a_temp;
-    char temp[100];
-    // reversing the given string
-    for(a = size-1, b = 0; a>=0; a--, b++)
+    int i, j, k = 0;
+    char ch[50];
+    for(i = size-1; i>=0; i--)
     {
-        temp[b] = str[a];
+        if(str[i] == ' ')
+        {
+            for(j = k-1; j>=0; j--)
+            {
+                printf("%c", ch[j]);
+            }
+            printf(" ");
+            k = 0;
+        }
+        else
+        {
+            ch[k] = str[i];
+            k++;
+        }
     }
-    temp[b] = '\0';  //add the null at the end of the string
-
-   for(a = 0; a<=size; a++)
-   {
-
-       if(temp[a] == ' ' || temp[a] == '\0')
-       {
-            /* When we find white space or null we return back in the string and store it in reverse order
-            for example amiaT ilA --> amiaT (find white space) so store --> Taima then continue and so on
-            */
-           for(b = t, a_temp = a - 1; b < a; b++, a_temp-- )
-           {
-                str[b] = temp[a_temp];
-           }
-           if(temp [a] != '\0')
-           {
-               str[b] = ' ';
-               t = t+a+1;
-           }
-
-
-       }
+    if(k != 0)
+    {
+        for(j = k-1; j>= 0; j--)
+        printf("%c", ch[j]);
     }
-    str[b] = '\0'; //add the null at the end of the string
-   printf("%s", str);
 
 }
