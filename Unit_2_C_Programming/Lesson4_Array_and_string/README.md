@@ -1,4 +1,4 @@
-# Homework solutions
+# Homework solution
 ## Arrays
 
 ### EX1
