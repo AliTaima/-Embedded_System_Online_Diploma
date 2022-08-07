@@ -15,6 +15,11 @@ int main()
 
 void rev_word_str(char str[], int size)
 {
+    /*
+    In this function I start from the last elem. in the array and start to store it in ch array with reverse order until i find the space
+    so when i found the space I begin to print the string in ch array with reverse order(reverse of reverse will become the original)
+    and the word printed correctly and so on
+    */
     int i, j, k = 0;
     char ch[50];
     for(i = size-1; i>=0; i--)
