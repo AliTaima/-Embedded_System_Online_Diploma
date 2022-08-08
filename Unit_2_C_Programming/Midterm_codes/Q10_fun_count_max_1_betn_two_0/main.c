@@ -21,4 +21,4 @@ int count_1(int num)
         count ++;
     }
     return count;
-}
+}git
