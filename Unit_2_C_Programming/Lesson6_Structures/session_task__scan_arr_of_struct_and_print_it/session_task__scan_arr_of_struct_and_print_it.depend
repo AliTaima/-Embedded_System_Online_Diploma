@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1659695927 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson6_structures\session_task__scan_arr_of_struct_and_print_it\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

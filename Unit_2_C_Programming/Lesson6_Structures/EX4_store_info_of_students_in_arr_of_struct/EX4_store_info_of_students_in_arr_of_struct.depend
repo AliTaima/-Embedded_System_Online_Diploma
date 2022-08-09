@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1660063327 source:b:\embedded_systems_online_diploma\unit_2_c_programming\lesson6_structures\ex4_store_info_of_students_in_arr_of_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
