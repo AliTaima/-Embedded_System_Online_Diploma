@@ -5,7 +5,8 @@ INCS=-I .
 LIBS=
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o) #same as OBJS = $(patsubst$.c, $.o, $SRC)
-
+As = $(wildcard *.s)
+AsOBJ = $(As:.s=.o)
 all: learn-in-depth.bin
 	@echo "----------Build is Done------------"
 startup.o: startup.s
@@ -14,8 +15,8 @@ startup.o: startup.s
 %.o: %.c
 	$(CC)gcc.exe -c $(INCS) $(CFLAGS) $< -o $@
 
-learn-in-depth.elf: $(OBJ) startup.o
-	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) startup.o -o $@
+learn-in-depth.elf: $(OBJ) $(AsOBJ)
+	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) $(AsOBJ) -o $@
 
 learn-in-depth.bin: learn-in-depth.elf
 	$(CC)objcopy.exe -O binary $< $@
