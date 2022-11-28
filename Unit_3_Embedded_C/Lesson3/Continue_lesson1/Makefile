@@ -1,6 +1,6 @@
 #@copyright: Ali Taima
 CC=arm-none-eabi-
-CFLAGS= -mcpu=cortex-m3 -mthumb
+CFLAGS= -mcpu=cortex-m3 -mthumb -gdwarf-2
 INCS=-I .
 LIBS=
 SRC = $(wildcard *.c)
