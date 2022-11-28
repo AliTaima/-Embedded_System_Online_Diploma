@@ -3,7 +3,9 @@ CC=arm-none-eabi-
 CFLAGS=-g -mcpu=arm926ej-s
 INCS=-I .
 LIBS=
-OBJ= startup.o app.o uart.o
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o) #same as OBJS = $(patsubst$.c, $.o, $SRC)
+
 all: learn-in-depth.bin
 	@echo "----------Build is Done------------"
 startup.o: startup.s
@@ -12,9 +14,9 @@ startup.o: startup.s
 %.o: %.c
 	$(CC)gcc.exe -c $(INCS) $(CFLAGS) $< -o $@
 
-learn-in-depth.elf: $(OBJ)
-	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) -o $@
- 
+learn-in-depth.elf: $(OBJ) startup.o
+	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) startup.o -o $@
+
 learn-in-depth.bin: learn-in-depth.elf
 	$(CC)objcopy.exe -O binary $< $@
 
