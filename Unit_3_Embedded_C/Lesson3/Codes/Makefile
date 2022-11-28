@@ -3,20 +3,18 @@ CC=arm-none-eabi-
 CFLAGS=-g -mcpu=arm926ej-s
 INCS=-I .
 LIBS=
+OBJ= startup.o app.o uart.o
 all: learn-in-depth.bin
 	@echo "----------Build is Done------------"
 startup.o: startup.s
 	$(CC)as.exe $(CFLAGS) $<  -o $@
 
-app.o: app.c
+%.o: %.c
 	$(CC)gcc.exe -c $(INCS) $(CFLAGS) $< -o $@
 
-uart.o: uart.c
-	$(CC)gcc.exe -c $(INCS) $(CFLAGS) $< -o $@
-
-learn-in-depth.elf: startup.o app.o uart.o
-	$(CC)ld.exe -T linker_script.ld $(LIBS) startup.o app.o uart.o -o $@
-
+learn-in-depth.elf: $(OBJ)
+	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) -o $@
+ 
 learn-in-depth.bin: learn-in-depth.elf
 	$(CC)objcopy.exe -O binary $< $@
 
