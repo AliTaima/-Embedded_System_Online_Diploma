@@ -7,7 +7,8 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o) #same as OBJS = $(patsubst$.c, $.o, $SRC)
 As = $(wildcard *.s)
 AsOBJ = $(As:.s=.o)
-all: learn-in-depth.bin
+Project_name=UART_lab
+all: $(Project_name).bin
 	@echo "----------Build is Done------------"
 startup.o: startup.s
 	$(CC)as.exe $(CFLAGS) $<  -o $@
@@ -15,10 +16,10 @@ startup.o: startup.s
 %.o: %.c
 	$(CC)gcc.exe -c $(INCS) $(CFLAGS) $< -o $@
 
-learn-in-depth.elf: $(OBJ) $(AsOBJ)
+$(Project_name).elf: $(OBJ) $(AsOBJ)
 	$(CC)ld.exe -T linker_script.ld $(LIBS) $(OBJ) $(AsOBJ) -o $@
 
-learn-in-depth.bin: learn-in-depth.elf
+$(Project_name).bin: $(Project_name).elf
 	$(CC)objcopy.exe -O binary $< $@
 
 clear_all:
