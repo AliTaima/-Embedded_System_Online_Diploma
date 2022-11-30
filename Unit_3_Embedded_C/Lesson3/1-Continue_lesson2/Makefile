@@ -7,7 +7,7 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o) #same as OBJS = $(patsubst$.c, $.o, $SRC)
 As = $(wildcard *.s)
 AsOBJ = $(As:.s=.o)
-Project_name=UART_lab
+Project_name=learn-in-depth
 all: $(Project_name).bin
 %.o: %.s
 	$(CC)as.exe $(CFLAGS) $<  -o $@
