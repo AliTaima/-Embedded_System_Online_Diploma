@@ -11,6 +11,15 @@ typedef volatile unsigned int vuint32_t;
 #define RCC_IOPAEN      (1<<2)
 #define GPIOA13         (1UL<<13)
 
+
+extern void NMI_Handler(void)
+{
+
+}
+extern void Bus_Fault_Handler(void)
+{
+    
+}
 typedef union{
         vuint32_t all_fields;
         struct 
