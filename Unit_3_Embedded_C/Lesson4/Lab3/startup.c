@@ -3,7 +3,7 @@ Eng.Ali Taima*/
 #include <stdint.h>
 #define STACK_Start_SP 0x20001000
 // I tell the compiler that it define in another file
-extern unsigned int _stack_top;
+
 extern unsigned int _S_DATA;
 extern unsigned int _E_DATA;
 extern unsigned int _S_bss;
@@ -17,20 +17,18 @@ void Default_Handler()
 }
 void NMI_Handler(void) __attribute__ ((weak, alias ("Default_Handler")));;
 void H_fault_Handler(void) __attribute__ ((weak, alias ("Default_Handler")));;
-void NM_Fault_Handler(void) __attribute__ ((weak, alias ("Default_Handler")));;
-void Bus_Fault_Handler(void) __attribute__ ((weak, alias ("Default_Handler")));;
-void Usage_Fault_Handler(void) __attribute__ ((weak, alias ("Default_Handler")));;
 
-uint32_t vectors[] __attribute__((section(".vectors"))) ={
-	(uint32_t) &_stack_top,
-	(uint32_t) &Reset_Handler, 
-	(uint32_t) &NMI_Handler, 
-	(uint32_t) &H_fault_Handler, 
-	(uint32_t) &NM_Fault_Handler, 
-	(uint32_t) &Bus_Fault_Handler, 
-	(uint32_t) &Usage_Fault_Handler, 
+// booking 1024 bytes located by .bss through un-initialized array of int with 256 elements (256 * 4 = 1024)
+static unsigned long Stack_top[256];
+
+
+void (* const g_p_fn_Vectors[])()__attribute__((section(".vectors"))) =
+{
+	(void (*)()) ((unsigned long) Stack_top + sizeof(Stack_top)),
+	&Reset_Handler, 
+	&NMI_Handler, 
+	&H_fault_Handler
 };
-
 
 void Reset_Handler(void)
 {
