@@ -10,7 +10,7 @@ int CA_distance = 0;
 int CA_threshold = 50;
 
 // State pointer to function
-void(CA_state)(); 
+void(*CA_state)();
 STATE_define(CA_waiting)
 {
 	//state_Name
@@ -41,7 +41,7 @@ STATE_define(CA_driving)
     printf("CA_Driving State: distance = %d Speed = %d \n", CA_distance, CA_speed);
 }
 
-int US_Get_distance_random(int l, intr, int count)
+int US_Get_distance_random(int l, int r, int count)
 {
 
     // this wil generate rnadom number in range 1 to r
