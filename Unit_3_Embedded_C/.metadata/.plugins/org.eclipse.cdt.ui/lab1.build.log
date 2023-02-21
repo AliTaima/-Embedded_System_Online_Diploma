@@ -1,0 +1,20 @@
+13:58:57 **** Build of configuration Debug for project lab1 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6ux.d" -MT"Startup/startup_stm32f103c6ux.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6ux.o" "../Startup/startup_stm32f103c6ux.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\lab1\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1.elf
+ 
+arm-none-eabi-size   lab1.elf 
+arm-none-eabi-objdump -h -S  lab1.elf  > "lab1.list"
+   text	   data	    bss	    dec	    hex	filename
+    836	      8	   1568	   2412	    96c	lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab1.list
+ 
+
+13:59:01 Build Finished. 0 errors, 0 warnings. (took 4s.231ms)
+

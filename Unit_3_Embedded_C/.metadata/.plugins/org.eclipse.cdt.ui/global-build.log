@@ -1,0 +1,426 @@
+13:58:55 **** Clean-only build of configuration Debug for project lab1 ****
+make -j4 clean 
+rm -rf *
+ 
+13:58:57 **** Build of configuration Debug for project lab1 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6ux.d" -MT"Startup/startup_stm32f103c6ux.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6ux.o" "../Startup/startup_stm32f103c6ux.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F103C6Ux -DSTM32F1 -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\lab1\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1.elf
+ 
+arm-none-eabi-size   lab1.elf 
+arm-none-eabi-objdump -h -S  lab1.elf  > "lab1.list"
+   text	   data	    bss	    dec	    hex	filename
+    836	      8	   1568	   2412	    96c	lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab1.list
+ 
+13:59:01 **** Clean-only build of configuration Debug for project toggle_LED ****
+make -j4 clean 
+rm -rf *
+ 
+13:59:02 **** Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "toggle_LED.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_3_Embedded_C\Lesson1\Lab1\toggle_LED\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle_LED.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle_LED.elf
+ 
+arm-none-eabi-size   toggle_LED.elf 
+arm-none-eabi-objdump -h -S  toggle_LED.elf  > "toggle_LED.list"
+arm-none-eabi-objcopy  -O ihex  toggle_LED.elf  "toggle_LED.hex"
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+Finished building: toggle_LED.hex
+Finished building: toggle_LED.list
+ 
+ 
+14:30:36 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+14:30:36 **** Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab1.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab1.elf  > "unit6_lesson3_lab1.list"
+   text	   data	    bss	    dec	    hex	filename
+    656	      8	   1568	   2232	    8b8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab1.list
+ 
+14:55:40 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+14:55:41 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'init_clock':
+../Src/main.c:97:6: warning: 'main' is normally a non-static function [-Wmain]
+   97 |  int main(void)
+      |      ^~~~
+../Src/main.c:75:32: warning: typedef 'vuint32_t' locally defined but not used [-Wunused-local-typedefs]
+   75 |  typedef volatile unsigned int vuint32_t ;
+      |                                ^~~~~~~~~
+At top level:
+../Src/main.c:97:6: warning: 'main' defined but not used [-Wunused-function]
+   97 |  int main(void)
+      |      ^~~~
+arm-none-eabi-gcc -o "unit6_lesson3_lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab1.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab1.elf  > "unit6_lesson3_lab1.list"
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab1.list
+ 
+14:55:45 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+14:55:45 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+15:07:58 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+15:07:58 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+15:07:59 **** Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c: In function 'init_clock':
+../Src/main.c:97:6: warning: 'main' is normally a non-static function [-Wmain]
+   97 |  int main(void)
+      |      ^~~~
+../Src/main.c:75:32: warning: typedef 'vuint32_t' locally defined but not used [-Wunused-local-typedefs]
+   75 |  typedef volatile unsigned int vuint32_t ;
+      |                                ^~~~~~~~~
+At top level:
+../Src/main.c:97:6: warning: 'main' defined but not used [-Wunused-function]
+   97 |  int main(void)
+      |      ^~~~
+arm-none-eabi-gcc -o "unit6_lesson3_lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab2.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab2.elf  > "unit6_lesson3_lab2.list"
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab2.list
+ 
+15:10:26 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+15:10:26 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab1.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab1.elf  > "unit6_lesson3_lab1.list"
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab1.list
+ 
+15:10:27 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab2.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab2.elf  > "unit6_lesson3_lab2.list"
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab2.list
+ 
+15:25:20 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+15:25:20 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+15:25:21 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab2.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab2.elf  > "unit6_lesson3_lab2.list"
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab2.list
+ 
+16:56:22 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+16:56:23 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+16:56:23 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+16:56:23 **** Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab3.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab3.elf  > "unit6_lesson3_lab3.list"
+   text	   data	    bss	    dec	    hex	filename
+    744	      8	   1568	   2320	    910	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab3.list
+ 
+17:08:37 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+17:08:37 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+17:08:37 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+17:08:38 **** Incremental Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab3.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab3.elf  > "unit6_lesson3_lab3.list"
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab3.list
+ 
+17:08:49 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+17:08:49 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+17:08:50 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+17:08:50 **** Incremental Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab3.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab3.elf  > "unit6_lesson3_lab3.list"
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab3.list
+ 
+17:10:50 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+17:10:50 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+17:10:50 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+17:10:50 **** Incremental Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab3.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab3.elf  > "unit6_lesson3_lab3.list"
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab3.list
+ 
+17:11:01 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+17:11:01 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+17:11:02 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+17:11:02 **** Incremental Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+17:13:34 **** Incremental Build of configuration Debug for project toggle_LED ****
+make -j4 all 
+arm-none-eabi-size   toggle_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	toggle_LED.elf
+Finished building: default.size.stdout
+ 
+17:13:34 **** Incremental Build of configuration Debug for project unit6_lesson3_lab1 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+    688	      8	   1568	   2264	    8d8	unit6_lesson3_lab1.elf
+Finished building: default.size.stdout
+ 
+17:13:34 **** Incremental Build of configuration Debug for project unit6_lesson3_lab2 ****
+make -j4 all 
+arm-none-eabi-size   unit6_lesson3_lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	unit6_lesson3_lab2.elf
+Finished building: default.size.stdout
+ 
+17:13:35 **** Incremental Build of configuration Debug for project unit6_lesson3_lab3 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "unit6_lesson3_lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_6_MCU_Fundamentals\unit6_lesson3_lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="unit6_lesson3_lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: unit6_lesson3_lab3.elf
+ 
+arm-none-eabi-size   unit6_lesson3_lab3.elf 
+arm-none-eabi-objdump -h -S  unit6_lesson3_lab3.elf  > "unit6_lesson3_lab3.list"
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	unit6_lesson3_lab3.elf
+Finished building: default.size.stdout
+ 
+Finished building: unit6_lesson3_lab3.list
+ 
