@@ -81,14 +81,13 @@ int main(void)
 		// first I mask with bit1 then shift it right to compare with decimal
 		if(MCAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0) //press
 		{
-			MCAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1);
-			while(MCAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0);//single press
+
+			while(((GPIOA_IDR &(1<<1))>>1) == 0);//single press
 
 		}
-		//PA13 connected external PDR
-		if(MCAL_GPIO_ReadPin(GPIOA, GPIO_PIN_13) == 1) //Multi press
+		if(((GPIOA_IDR &(1<<13)) >> 13) == 1) //Multi press
 		{
-			MCAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
+			GPIOB_ODR ^= 1<<13;
 		}
 		my_wait(1);
 	}
