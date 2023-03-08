@@ -1,0 +1,7 @@
+Src/main.o: ../Src/main.c \
+ B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_GPIO_Driver.h \
+ B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h \
+ B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h
+B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_GPIO_Driver.h:
+B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h:
+B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson3_drivers/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h:
