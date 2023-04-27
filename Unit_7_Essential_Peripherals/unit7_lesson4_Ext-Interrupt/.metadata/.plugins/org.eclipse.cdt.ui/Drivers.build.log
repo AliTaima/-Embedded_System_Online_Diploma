@@ -1,0 +1,28 @@
+09:00:00 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -I"B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.d" -MT"Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.o"
+In file included from ../Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.c:9:
+B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_EXTI_Driver.h:182: warning: "EXTI_IRQ_Enable" redefined
+  182 | #define EXTI_IRQ_Enable     0
+      | 
+B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_EXTI_Driver.h:181: note: this is the location of the previous definition
+  181 | #define EXTI_IRQ_Enable     1
+      | 
+../Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.c: In function 'Update_EXTI':
+../Stm32_F103C6_Drivers/Stm32_F103C6_EXTI_Driver.c:29:19: warning: variable 'PinCfg' set but not used [-Wunused-but-set-variable]
+   29 |  GPIO_PinConfig_t PinCfg;
+      |                   ^~~~~~
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Embedded_Systems_Online_Diploma\Unit_7_Essential_Peripherals\unit7_lesson4_Ext-Interrupt\Drivers\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers.elf
+ 
+arm-none-eabi-size   Drivers.elf 
+arm-none-eabi-objdump -h -S  Drivers.elf  > "Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1552	      8	   1568	   3128	    c38	Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers.list
+ 
+
+09:00:01 Build Finished. 0 errors, 2 warnings. (took 1s.295ms)
+

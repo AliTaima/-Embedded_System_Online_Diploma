@@ -1,0 +1,13 @@
+/*
+ * Stm32_F103C6_GPIO_Driver.h
+ *
+ *  Created on: Feb 22, 2023
+ *      Author: Ali Mohamed Taima
+ */
+
+#ifndef INC_STM32_F103C6_EXTI_DRIVER_H_
+#define INC_STM32_F103C6_EXTI_DRIVER_H_
+// Includes
+#include "Stm32_F103x6.h"
+
+#endif /* INC_STM32_F103C6_EXTI_DRIVER_H_ */
