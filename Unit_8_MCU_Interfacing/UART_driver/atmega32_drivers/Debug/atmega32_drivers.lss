@@ -1,0 +1,343 @@
+
+atmega32_drivers.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000200  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  00000200  00000294  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  00800062  00800062  00000296  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000296  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002c8  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000c0  00000000  00000000  00000304  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000144f  00000000  00000000  000003c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000731  00000000  00000000  00001813  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000007fe  00000000  00000000  00001f44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001b8  00000000  00000000  00002744  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000583  00000000  00000000  000028fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000091e  00000000  00000000  00002e7f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000090  00000000  00000000  0000379d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__vector_1>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e0 e0       	ldi	r30, 0x00	; 0
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a2 36       	cpi	r26, 0x62	; 98
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a2 e6       	ldi	r26, 0x62	; 98
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a4 36       	cpi	r26, 0x64	; 100
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 9a 00 	call	0x134	; 0x134 <main>
+  8a:	0c 94 fe 00 	jmp	0x1fc	; 0x1fc <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <__vector_1>:
+			PedestrianMode();
+		}
+	}
+}
+ISR(EXT_INT_0)
+{
+  92:	1f 92       	push	r1
+  94:	0f 92       	push	r0
+  96:	0f b6       	in	r0, 0x3f	; 63
+  98:	0f 92       	push	r0
+  9a:	11 24       	eor	r1, r1
+  9c:	2f 93       	push	r18
+  9e:	3f 93       	push	r19
+  a0:	4f 93       	push	r20
+  a2:	5f 93       	push	r21
+  a4:	6f 93       	push	r22
+  a6:	7f 93       	push	r23
+  a8:	8f 93       	push	r24
+  aa:	9f 93       	push	r25
+  ac:	af 93       	push	r26
+  ae:	bf 93       	push	r27
+  b0:	ef 93       	push	r30
+  b2:	ff 93       	push	r31
+  b4:	cf 93       	push	r28
+  b6:	df 93       	push	r29
+  b8:	1f 92       	push	r1
+  ba:	cd b7       	in	r28, 0x3d	; 61
+  bc:	de b7       	in	r29, 0x3e	; 62
+		3. turn on the interrupt state the indicate that the user can't implement the ISR again 
+		until finish the first one
+
+	*/ 
+		// 1. check the color of cars' LED when the pedestrian push the button
+	if (interrupt_state == INTERRUPT_OFF)
+  be:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  c2:	81 30       	cpi	r24, 0x01	; 1
+  c4:	19 f5       	brne	.+70     	; 0x10c <__vector_1+0x7a>
+	{
+		uint8_t value;
+		DIO_read(LED_C_RED_PORT, LED_C_RED_PIN, &value);
+  c6:	ae 01       	movw	r20, r28
+  c8:	4f 5f       	subi	r20, 0xFF	; 255
+  ca:	5f 4f       	sbci	r21, 0xFF	; 255
+  cc:	60 e0       	ldi	r22, 0x00	; 0
+  ce:	80 e0       	ldi	r24, 0x00	; 0
+  d0:	0e 94 9d 00 	call	0x13a	; 0x13a <DIO_read>
+		if (value)
+  d4:	89 81       	ldd	r24, Y+1	; 0x01
+  d6:	88 23       	and	r24, r24
+  d8:	19 f0       	breq	.+6      	; 0xe0 <__vector_1+0x4e>
+		{
+			color = RED;
+  da:	10 92 63 00 	sts	0x0063, r1	; 0x800063 <color>
+  de:	11 c0       	rjmp	.+34     	; 0x102 <__vector_1+0x70>
+		}
+		else
+		{
+			DIO_read(LED_C_GREEN_PORT, LED_C_GREEN_PIN, &value);
+  e0:	ae 01       	movw	r20, r28
+  e2:	4f 5f       	subi	r20, 0xFF	; 255
+  e4:	5f 4f       	sbci	r21, 0xFF	; 255
+  e6:	62 e0       	ldi	r22, 0x02	; 2
+  e8:	80 e0       	ldi	r24, 0x00	; 0
+  ea:	0e 94 9d 00 	call	0x13a	; 0x13a <DIO_read>
+			if (value)
+  ee:	89 81       	ldd	r24, Y+1	; 0x01
+  f0:	88 23       	and	r24, r24
+  f2:	21 f0       	breq	.+8      	; 0xfc <__vector_1+0x6a>
+			{
+
+				color = GREEN;
+  f4:	82 e0       	ldi	r24, 0x02	; 2
+  f6:	80 93 63 00 	sts	0x0063, r24	; 0x800063 <color>
+  fa:	03 c0       	rjmp	.+6      	; 0x102 <__vector_1+0x70>
+			}
+			else
+			{
+				color = YELLOW;
+  fc:	81 e0       	ldi	r24, 0x01	; 1
+  fe:	80 93 63 00 	sts	0x0063, r24	; 0x800063 <color>
+			}
+		}
+		//	2. convert the mode from the normal to pedestrian mode
+		mode = PEDESTRIAN;
+ 102:	81 e0       	ldi	r24, 0x01	; 1
+ 104:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <__data_end>
+		// 3. turn on the interrupt state the indicate that the user can't implement the ISR again
+		interrupt_state = INTERRUPT_ON;
+ 108:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+	}
+}
+ 10c:	0f 90       	pop	r0
+ 10e:	df 91       	pop	r29
+ 110:	cf 91       	pop	r28
+ 112:	ff 91       	pop	r31
+ 114:	ef 91       	pop	r30
+ 116:	bf 91       	pop	r27
+ 118:	af 91       	pop	r26
+ 11a:	9f 91       	pop	r25
+ 11c:	8f 91       	pop	r24
+ 11e:	7f 91       	pop	r23
+ 120:	6f 91       	pop	r22
+ 122:	5f 91       	pop	r21
+ 124:	4f 91       	pop	r20
+ 126:	3f 91       	pop	r19
+ 128:	2f 91       	pop	r18
+ 12a:	0f 90       	pop	r0
+ 12c:	0f be       	out	0x3f, r0	; 63
+ 12e:	0f 90       	pop	r0
+ 130:	1f 90       	pop	r1
+ 132:	18 95       	reti
+
+00000134 <main>:
+
+int main(void)
+{
+    //App_init();
+	//App_start();
+}
+ 134:	80 e0       	ldi	r24, 0x00	; 0
+ 136:	90 e0       	ldi	r25, 0x00	; 0
+ 138:	08 95       	ret
+
+0000013a <DIO_read>:
+		pinNumber --> PIN0, PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7
+		*value --> pointer store the status on the variable that it point to
+		--------------------its task--------------------------------
+		This function read the state of pinNumber and store it in *value pointer
+	*/
+	switch (portNumber)
+ 13a:	81 30       	cpi	r24, 0x01	; 1
+ 13c:	e9 f0       	breq	.+58     	; 0x178 <DIO_read+0x3e>
+ 13e:	30 f0       	brcs	.+12     	; 0x14c <DIO_read+0x12>
+ 140:	82 30       	cpi	r24, 0x02	; 2
+ 142:	81 f1       	breq	.+96     	; 0x1a4 <DIO_read+0x6a>
+ 144:	83 30       	cpi	r24, 0x03	; 3
+ 146:	09 f4       	brne	.+2      	; 0x14a <DIO_read+0x10>
+ 148:	43 c0       	rjmp	.+134    	; 0x1d0 <DIO_read+0x96>
+ 14a:	08 95       	ret
+	{
+	case PORT_A:
+		GET_STATE(*value, PINA, pinNumber); // get state --> read bit
+ 14c:	79 b3       	in	r23, 0x19	; 25
+ 14e:	81 e0       	ldi	r24, 0x01	; 1
+ 150:	90 e0       	ldi	r25, 0x00	; 0
+ 152:	9c 01       	movw	r18, r24
+ 154:	06 2e       	mov	r0, r22
+ 156:	02 c0       	rjmp	.+4      	; 0x15c <DIO_read+0x22>
+ 158:	22 0f       	add	r18, r18
+ 15a:	33 1f       	adc	r19, r19
+ 15c:	0a 94       	dec	r0
+ 15e:	e2 f7       	brpl	.-8      	; 0x158 <DIO_read+0x1e>
+ 160:	87 2f       	mov	r24, r23
+ 162:	90 e0       	ldi	r25, 0x00	; 0
+ 164:	82 23       	and	r24, r18
+ 166:	93 23       	and	r25, r19
+ 168:	02 c0       	rjmp	.+4      	; 0x16e <DIO_read+0x34>
+ 16a:	95 95       	asr	r25
+ 16c:	87 95       	ror	r24
+ 16e:	6a 95       	dec	r22
+ 170:	e2 f7       	brpl	.-8      	; 0x16a <DIO_read+0x30>
+ 172:	fa 01       	movw	r30, r20
+ 174:	80 83       	st	Z, r24
+		break;
+ 176:	08 95       	ret
+	case PORT_B:
+		GET_STATE(*value, PINB, pinNumber); // get state --> read bit
+ 178:	76 b3       	in	r23, 0x16	; 22
+ 17a:	81 e0       	ldi	r24, 0x01	; 1
+ 17c:	90 e0       	ldi	r25, 0x00	; 0
+ 17e:	9c 01       	movw	r18, r24
+ 180:	06 2e       	mov	r0, r22
+ 182:	02 c0       	rjmp	.+4      	; 0x188 <DIO_read+0x4e>
+ 184:	22 0f       	add	r18, r18
+ 186:	33 1f       	adc	r19, r19
+ 188:	0a 94       	dec	r0
+ 18a:	e2 f7       	brpl	.-8      	; 0x184 <DIO_read+0x4a>
+ 18c:	87 2f       	mov	r24, r23
+ 18e:	90 e0       	ldi	r25, 0x00	; 0
+ 190:	82 23       	and	r24, r18
+ 192:	93 23       	and	r25, r19
+ 194:	02 c0       	rjmp	.+4      	; 0x19a <DIO_read+0x60>
+ 196:	95 95       	asr	r25
+ 198:	87 95       	ror	r24
+ 19a:	6a 95       	dec	r22
+ 19c:	e2 f7       	brpl	.-8      	; 0x196 <DIO_read+0x5c>
+ 19e:	fa 01       	movw	r30, r20
+ 1a0:	80 83       	st	Z, r24
+		break;
+ 1a2:	08 95       	ret
+	case PORT_C:
+		GET_STATE(*value, PINC, pinNumber); // get state --> read bit
+ 1a4:	73 b3       	in	r23, 0x13	; 19
+ 1a6:	81 e0       	ldi	r24, 0x01	; 1
+ 1a8:	90 e0       	ldi	r25, 0x00	; 0
+ 1aa:	9c 01       	movw	r18, r24
+ 1ac:	06 2e       	mov	r0, r22
+ 1ae:	02 c0       	rjmp	.+4      	; 0x1b4 <DIO_read+0x7a>
+ 1b0:	22 0f       	add	r18, r18
+ 1b2:	33 1f       	adc	r19, r19
+ 1b4:	0a 94       	dec	r0
+ 1b6:	e2 f7       	brpl	.-8      	; 0x1b0 <DIO_read+0x76>
+ 1b8:	87 2f       	mov	r24, r23
+ 1ba:	90 e0       	ldi	r25, 0x00	; 0
+ 1bc:	82 23       	and	r24, r18
+ 1be:	93 23       	and	r25, r19
+ 1c0:	02 c0       	rjmp	.+4      	; 0x1c6 <DIO_read+0x8c>
+ 1c2:	95 95       	asr	r25
+ 1c4:	87 95       	ror	r24
+ 1c6:	6a 95       	dec	r22
+ 1c8:	e2 f7       	brpl	.-8      	; 0x1c2 <DIO_read+0x88>
+ 1ca:	fa 01       	movw	r30, r20
+ 1cc:	80 83       	st	Z, r24
+		break;
+ 1ce:	08 95       	ret
+	case PORT_D:
+		GET_STATE(*value, PIND, pinNumber); // get state --> read bit
+ 1d0:	70 b3       	in	r23, 0x10	; 16
+ 1d2:	81 e0       	ldi	r24, 0x01	; 1
+ 1d4:	90 e0       	ldi	r25, 0x00	; 0
+ 1d6:	9c 01       	movw	r18, r24
+ 1d8:	06 2e       	mov	r0, r22
+ 1da:	02 c0       	rjmp	.+4      	; 0x1e0 <DIO_read+0xa6>
+ 1dc:	22 0f       	add	r18, r18
+ 1de:	33 1f       	adc	r19, r19
+ 1e0:	0a 94       	dec	r0
+ 1e2:	e2 f7       	brpl	.-8      	; 0x1dc <DIO_read+0xa2>
+ 1e4:	87 2f       	mov	r24, r23
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	82 23       	and	r24, r18
+ 1ea:	93 23       	and	r25, r19
+ 1ec:	02 c0       	rjmp	.+4      	; 0x1f2 <DIO_read+0xb8>
+ 1ee:	95 95       	asr	r25
+ 1f0:	87 95       	ror	r24
+ 1f2:	6a 95       	dec	r22
+ 1f4:	e2 f7       	brpl	.-8      	; 0x1ee <DIO_read+0xb4>
+ 1f6:	fa 01       	movw	r30, r20
+ 1f8:	80 83       	st	Z, r24
+ 1fa:	08 95       	ret
+
+000001fc <_exit>:
+ 1fc:	f8 94       	cli
+
+000001fe <__stop_program>:
+ 1fe:	ff cf       	rjmp	.-2      	; 0x1fe <__stop_program>
