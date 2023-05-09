@@ -16,3 +16,5 @@ MCAL\Interrupt_Library\interrupts.c
 
 MCAL\Timer\timer.c
 
+MCAL\UART\UART.C
+

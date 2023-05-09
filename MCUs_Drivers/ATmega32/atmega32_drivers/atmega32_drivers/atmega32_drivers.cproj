@@ -159,6 +159,12 @@
     <Compile Include="MCAL\Timer\timer.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\UART\UART.C">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\UART.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Utilities\registers.h">
       <SubType>compile</SubType>
     </Compile>
@@ -173,6 +179,7 @@
     <Folder Include="MCAL" />
     <Folder Include="MCAL\Interrupt_Library" />
     <Folder Include="MCAL\DIO" />
+    <Folder Include="MCAL\UART" />
     <Folder Include="MCAL\Timer" />
     <Folder Include="Application" />
     <Folder Include="Utilities" />
