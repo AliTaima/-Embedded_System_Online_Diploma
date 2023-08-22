@@ -4,21 +4,19 @@
 #include <string.h>
 int main()
 {
+	//Assuming max legnth = 19
+	char str[20], i = 0, * strp;
+	strp = str;
+	scanf("%s", str);
+	while (*strp)
+	{
+		strp++;
+		i++;
+	}
+	for (i = i; i >= 0; i--)
+	{
+		printf("%c", *(strp--));
+	}
 
-	int m = 29;
-	printf("Address of m: %p\n", &m);
-	printf("Value of m: %d\n", m);
-
-	int* ab = &m;
-	printf("\nAddress of ab: %p\n", ab);
-	printf("Value of ab: %d\n", *ab);
-
-	m = 34;
-	printf("\nAddress of m: %p\n", &m);
-	printf("Value of m: %d\n", m);
-
-	*ab = 7;
-	printf("\nAddress of ab: %p\n", ab);
-	printf("Value of ab: %d\n", *ab);
 	return 0;
 }
