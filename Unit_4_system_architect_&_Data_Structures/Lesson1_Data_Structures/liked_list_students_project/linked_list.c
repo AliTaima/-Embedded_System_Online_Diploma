@@ -27,10 +27,10 @@ void AddStudent(void)
 	gets(temp_text);
 	pNewStudent->student.ID = atoi(temp_text);
 
-	printf("\nEnter the sutend full name: ");
+	printf("Enter the sutend full name: ");
 	gets(pNewStudent->student.name);
 
-	printf("\nEnter the student height: ");
+	printf("Enter the student height: ");
 	gets(temp_text);
 	pNewStudent->student.height = atof(temp_text);
 
