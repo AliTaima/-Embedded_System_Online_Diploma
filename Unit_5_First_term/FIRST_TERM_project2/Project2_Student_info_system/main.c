@@ -6,36 +6,24 @@
  */
 #define _CRT_SECURE_NO_WARNINGS
 #include "student_info.h"
-#include <string.h>
+
 int main()
 {
 	fifo_Buf_t students_data_base;
-	if (fifo_init(&students_data_base, queue, (uint32_t)width1) == fifo_no_error)
-		printf("fifo init ------------------ Done \n");
-	/* student_inf_t student1;
-	strcpy(student1.fname, "Ali");
-	strcpy(student1.lname, "Taima");
-	student1.roll_num = 1;
-	student1.course_id[0] = 33;
-	student1.GPA = 3.5;
-	int i; 
-	for (i = 0; i < 5; i++)
-	{
-		student1.course_id[i] = i+3;
-	}
-	fifo_enqueue(&students_data_base, student1);*/
+	if (!fifo_init(&students_data_base, queue, (uint32_t)width1) == fifo_no_error)
+		exit(0);
 	int choice, req_roll, req_course;
 	char str[50];
 	printf("Welcome to the student managements system\n");
 	while (1)
 	{
 		printf("\nChoose the task that you want to perform\n");
-		printf("1. Add the student details manually\n");
-		printf("2. Add the student details from text file\n");
-		printf("3. Find the student details by roll numbe\n");
+		printf("1. Add the student details from text file\n");
+		printf("2. Add the student details manually\n");
+		printf("3. Find the student details by roll number\n");
 		printf("4. Find the student details by first number\n");
 		printf("5. Find the student details by course ID\n");
-		printf("6. Find the total number os students\n");
+		printf("6. Find the total number of students\n");
 		printf("7. Delete the students details by roll number\n");
 		printf("8. Update the students details by roll number\n");
 		printf("9. Show all information\n");
@@ -45,6 +33,9 @@ int main()
 		switch (choice)
 		{
 		case 1:
+			add_student_from_file(&students_data_base);
+			break;
+		case 2:
 			add_student_manually(&students_data_base);
 			break;
 		case 3:

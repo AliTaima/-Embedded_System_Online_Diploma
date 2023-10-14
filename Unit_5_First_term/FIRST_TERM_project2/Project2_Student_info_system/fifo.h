@@ -10,6 +10,8 @@
  // including libraries
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
 //#include "student_info.h"
 // User configurations
 // select the element type (uint8_t, uint16_t, uint32_t)

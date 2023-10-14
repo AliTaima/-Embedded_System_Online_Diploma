@@ -2,14 +2,63 @@
 #include "student_info.h"
 element_type temp;
 element_type *Ptemp;
+element_type* Ptemp2;
+
 
 element_type* student = NULL;
-int i, j, choice;
+int i, j, a, choice, temp_roll;
+int check_douplicate_roll(fifo_Buf_t* fifo, int roll_num)
+{
+	Ptemp2 = fifo->tail;
+	for (i = 0; i < fifo->count; i++)
+	{
+		if (Ptemp2->roll_num == roll_num)
+		{
+			printf("[ERROR] roll numbe is unique for each student, please enter anohter one\n");
+			return 0;
+		}
+		Ptemp2++;
+	}
+		return 1;
+
+}
+void store_course_id( int courses[5])
+{
+	int f, id;
+	
+	for (i = 0; i < 5; i++)
+	{
+		f = 1;// use as a flage to detect douplicate course ids 
+		while (f)
+		{
+			printf("Course %d ID: ", i + 1);
+			scanf("%d", &id);
+			f = 0;
+			for (j = 0; j < 5; j++)
+			{
+
+				if (j == i)
+					continue;
+				if (id == courses[j])
+				{
+					printf("[ERROR] Please enter unique course id for the same student\n");
+					f = 1;
+					break;
+				}
+			}
+			courses[i] = id;
+		}
+	}
+	
+}
 void add_student_manually(fifo_Buf_t* fifo)
 {
+	do
+	{
+		printf("Enter the Roll number: ");
+		scanf("%d", &(temp.roll_num));
+	} while (!check_douplicate_roll(fifo, temp.roll_num));
 	
-	printf("Enter the Roll number: ");
-	scanf("%d", &(temp.roll_num));
 	printf("Enter the first name of student: ");
 	scanf("%s", temp.fname);
 	printf("Enter the last name of student: ");
@@ -17,11 +66,7 @@ void add_student_manually(fifo_Buf_t* fifo)
 	printf("Enter the GPA you obtained: ");
 	scanf("%f", &temp.GPA);
 	printf("Enter the course ID of each course\n");
-	for (i = 0; i < 5; i++)
-	{
-		printf("Course %d ID: ", i + 1);
-		scanf("%d", &temp.course_id[i]);
-	}
+	store_course_id(temp.course_id);
 	fifo_enqueue(fifo, temp);
 	printf("[INFO] Student Details is added successfully\n");
 }
@@ -63,6 +108,14 @@ void tot_s(fifo_Buf_t* fifo)
 }
 int del_s(fifo_Buf_t* fifo, int req_roll)
 {
+	/* 
+	* This function is used to delete student from the database and I have 3 cases
+	* 1- the student at the beginning of the queue so I want to increment the tail only
+	* 2- the student at the end of the queue so I wanto to decrement the head only
+	* 3- the student at random place between the tail and the head so I work from the tail
+	* until I find it then exchange the data between each two students until reach the end
+	* and increment the tail
+	*/
 	Ptemp = fifo->tail;
 	if (fifo->count == 0)
 	{
@@ -116,11 +169,11 @@ int del_s(fifo_Buf_t* fifo, int req_roll)
 			strcpy(Ptemp->lname, (Ptemp - 1)->lname);
 			Ptemp->roll_num = (Ptemp - 1)->roll_num;
 			Ptemp->GPA = (Ptemp - 1)->GPA;
-			for (j = 0; j < 5; j++)
+			for (a = 0; a < 5; a++)
 			{
-				Ptemp->course_id[j] = (Ptemp - 1)->course_id[j];
+				Ptemp->course_id[a] = (Ptemp - 1)->course_id[a];
 			}
-
+			Ptemp--;
 
 		}
 		fifo->tail++;
@@ -172,6 +225,10 @@ void find_roll_num(fifo_Buf_t* fifo, int req_roll)
 }
 void upate_s(fifo_Buf_t* fifo, int req_roll)
 {
+	/*
+	* - This function update the data of student you enter before 
+	* - You should choose which data you want to change 
+	*/
 	Ptemp = fifo->tail;
 	if (fifo->count == 0)
 	{
@@ -213,8 +270,12 @@ void upate_s(fifo_Buf_t* fifo, int req_roll)
 			scanf("%s", Ptemp->lname);
 			break;
 		case 3:
-			printf("Enter the new roll number: ");
-			scanf("%d", &(Ptemp->roll_num));
+			do
+			{
+				printf("Enter the new roll number: ");
+				scanf("%d", &temp_roll);
+			} while (!check_douplicate_roll(fifo, temp_roll));
+			Ptemp->roll_num = temp_roll;
 			break;
 		case 4:
 			printf("Enter the new GPA you obtained: ");
@@ -222,11 +283,7 @@ void upate_s(fifo_Buf_t* fifo, int req_roll)
 			break;
 		case 5:
 			printf("Enter the new ID of each course\n");
-			for (i = 0; i < 5; i++)
-			{
-				printf("Course %d ID: ", i + 1);
-				scanf("%d", &(Ptemp->course_id[i]));
-			}
+			store_course_id(Ptemp->course_id);
 			break;
 		}
 		
@@ -302,5 +359,76 @@ void find_course(fifo_Buf_t* fifo, int req_course)
 
 	}
 
+}
+void add_student_from_file(fifo_Buf_t* fifo)
+{
+	FILE* fptr;
+	int i, j, a;
+	fptr = fopen("details.txt", "r");
+	char content[1000], temp_str[50];
+	if (fptr != NULL)
+	{
+		while (fgets(content, 1000, fptr))
+		{
+			j = 0;
+			for (i = 0; i < 9; i++)// read 9 different words
+			{
+				a = 0; // use this to store data at temp_str
+				for (j = j; j < 100; j++)
+				{
+					// separate each word by ',' or end phrase with '\0'
+					if (content[j] == ',' || content[j] == '\0')
+					{
+						// go to next char as if it breaks it will frez 
+						// at ',' or '\0'
+						j++;
+						break;
+					}
+					if (content[j] == ' ')// skip spaces
+						continue;
+					temp_str[a] = content[j];// copy content before ',' or '\0'
+					a++;
+				}
+				temp_str[a] = '\0';// add null at the end of string
+
+				switch (i)
+				{
+				case 0:
+					temp.roll_num = atoi(temp_str);
+					break;
+				case 1:
+					strcpy(temp.fname, temp_str);
+					break;
+				case 2:
+					strcpy(temp.lname, temp_str);
+					break;
+				case 3:
+					temp.GPA = atof(temp_str);
+					break;
+				case 4:
+					temp.course_id[0] = atoi(temp_str);
+					break;
+				case 5:
+					temp.course_id[1] = atoi(temp_str);
+					break;
+				case 6:
+					temp.course_id[2] = atoi(temp_str);
+					break;
+				case 7:
+					temp.course_id[3] = atoi(temp_str);
+					break;
+				case 8:
+					temp.course_id[4] = atoi(temp_str);
+					break;
+				default:
+					break;
+				}
+			}
+			fifo_enqueue(fifo, temp);
+		}
+		printf("------------Students details added successfully-------------\n");
+	}
+	else
+		printf("Fail");
 }
 
