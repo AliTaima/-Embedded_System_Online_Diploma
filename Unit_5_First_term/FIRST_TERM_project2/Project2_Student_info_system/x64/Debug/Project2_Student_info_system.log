@@ -1,0 +1,22 @@
+﻿  student_info.c
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(37,17): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(97,16): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(115,4): warning C4013: 'strcpy' undefined; assuming extern returning int
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(138,11): warning C4098: 'find_roll_num': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(145,11): warning C4098: 'find_roll_num': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(151,11): warning C4098: 'find_roll_num': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(153,16): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(164,11): warning C4098: 'find_roll_num': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(170,11): warning C4098: 'find_roll_num': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(179,11): warning C4098: 'upate_s': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(182,16): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(193,11): warning C4098: 'upate_s': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(234,11): warning C4098: 'upate_s': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(244,11): warning C4098: 'find_first_name': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(247,16): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(249,8): warning C4013: 'strcmp' undefined; assuming extern returning int
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(260,11): warning C4098: 'find_first_name': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(271,11): warning C4098: 'find_course': 'void' function returning a value
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(274,16): warning C4018: '<': signed/unsigned mismatch
+B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\student_info.c(296,11): warning C4098: 'find_course': 'void' function returning a value
+  Project2_Student_info_system.vcxproj -> B:\Embedded_Systems_Online_Diploma\Unit_5_First_term\FIRST_TERM_project2\Project2_Student_info_system\x64\Debug\Project2_Student_info_system.exe
