@@ -13,22 +13,18 @@
 // include the types header
 #include "../../Utilities/types.h"
 // include interrupt header
-#include "../Interrupt_Library/interrupts.h"
+#include "../INTERRUPT/interrupts.h"
 /************************************************************************/
 /* define helpful macros                                               */
 /************************************************************************/
 // set pin macro(make PIN_NO = 1)
-#define SET_BIT(X, PIN_NO) X |= (1 << PIN_NO)
+#define SET_PIN(X, PIN_NO) X |= (1 << PIN_NO)
 // clear pin macro(make PIN_NO = 0)
-#define CLR_BIT(X, PIN_NO) X &= ~(1 << PIN_NO)
+#define CLR_PIN(X, PIN_NO) X &= ~(1 << PIN_NO)
 // toggle pin macro(make PIN_NO = 0 then PIN_NO = 1 and so on...)
-#define TOGGLE_BIT(X, PIN_NO) X ^= (1 << PIN_NO)
+#define TOGGLE_PIN(X, PIN_NO) X ^= (1 << PIN_NO)
 // get status of the pin(read pin) to see it high or low(X--> the value, Y--> the PIN_name)for example(*value, PINA, PIN4)
 #define GET_STATE(X, Y, PIN_NO) X = (Y & (1 << PIN_NO)) >> PIN_NO
-// Read pin
-#define READ_BIT(X, PIN_NO) ((X & (1 << PIN_NO)) >> PIN_NO)
-// Here is another method to read pin 
-//#define READ_BIT(X, PIN_NO) ((X>>PIN_NO)&1)
 /************************************************************************/
 /*							Typedefs						            */
 /************************************************************************/

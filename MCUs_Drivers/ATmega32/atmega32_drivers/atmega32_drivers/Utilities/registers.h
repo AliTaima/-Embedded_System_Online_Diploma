@@ -45,22 +45,9 @@
 /************************************************************************/
 /* External Interrupts registers                                        */
 /************************************************************************/
-#define MCUCR	*((volatile uint8_t *)0x55)  // 8-bit register
-#define MCUCSR	*((volatile uint8_t *)0x54) // 8-bit register
-#define GIFR	*((volatile uint8_t *)0x5A)   // 8-bit register
-#define GICR	*((volatile uint8_t *)0x5B)   // 8-bit register
-
-/************************************************************************/
-/* UART registers                                                       */
-/************************************************************************/
-//USART I/O Data Register
-#define UDR		*((volatile uint8_t *)0x2C)
-#define UCSRA	*((volatile uint8_t *)0x2B)
-#define UCSRB	*((volatile uint8_t *)0x2A)
-//USART Baud Rate Register Low Byte
-#define UBRRL	*((volatile uint8_t *)0x29)
-
-
-
+#define MCUCR *((volatile uint8_t *)0x55)  // 8-bit register
+#define MCUCSR *((volatile uint8_t *)0x54) // 8-bit register
+#define GIFR *((volatile uint8_t *)0x5A)   // 8-bit register
+#define GICR *((volatile uint8_t *)0x5B)   // 8-bit register
 
 #endif /* REGISTERS_H_ */
