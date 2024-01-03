@@ -3,27 +3,27 @@ atmega32_drivers.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000072  00000000  00000000  00000054  2**1
+  0 .text         000000a4  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000000c6  2**0
+  1 .data         00000000  00800060  00800060  000000f8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000000c6  2**0
+  2 .comment      00000030  00000000  00000000  000000f8  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000000f8  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000128  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  00000134  2**0
+  4 .debug_aranges 00000020  00000000  00000000  00000164  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000563  00000000  00000000  00000154  2**0
+  5 .debug_info   00000552  00000000  00000000  00000184  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000004ec  00000000  00000000  000006b7  2**0
+  6 .debug_abbrev 000004f9  00000000  00000000  000006d6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000014f  00000000  00000000  00000ba3  2**0
+  7 .debug_line   000001db  00000000  00000000  00000bcf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00000cf4  2**2
+  8 .debug_frame  00000024  00000000  00000000  00000dac  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000002e6  00000000  00000000  00000d18  2**0
+  9 .debug_str    000002dc  00000000  00000000  00000dd0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  00000ffe  2**0
+ 10 .debug_ranges 00000010  00000000  00000000  000010ac  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -59,22 +59,63 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
-  64:	0c 94 37 00 	jmp	0x6e	; 0x6e <_exit>
+  64:	0c 94 50 00 	jmp	0xa0	; 0xa0 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000006c <main>:
 
-#include <avr/io.h>
-
 
 int main(void)
 {
-  6c:	ff cf       	rjmp	.-2      	; 0x6c <main>
+    //make pin(5, 6, 7) as output in PORTD
+    DDRD |= (0b111 << 5);
+  6c:	81 b3       	in	r24, 0x11	; 17
+  6e:	80 6e       	ori	r24, 0xE0	; 224
+  70:	81 bb       	out	0x11, r24	; 17
+    //INT0 occurs when "any logical change"
+    MCUCR |= (0b01 << 2);
+  72:	85 b7       	in	r24, 0x35	; 53
+  74:	84 60       	ori	r24, 0x04	; 4
+  76:	85 bf       	out	0x35, r24	; 53
+    // INT1 occurs when "rising edge"
+    MCUCR |= (0b11 << 2);
+  78:	85 b7       	in	r24, 0x35	; 53
+  7a:	8c 60       	ori	r24, 0x0C	; 12
+  7c:	85 bf       	out	0x35, r24	; 53
+    // INT2 occurs when "Falling edge"
+    CLR_PIN(MCUCSR, 6);
+  7e:	84 b7       	in	r24, 0x34	; 52
+  80:	8f 7b       	andi	r24, 0xBF	; 191
+  82:	84 bf       	out	0x34, r24	; 52
+    //Enable all external interrupts
+    GICR |= (0b111<<5);
+  84:	8b b7       	in	r24, 0x3b	; 59
+  86:	80 6e       	ori	r24, 0xE0	; 224
+  88:	8b bf       	out	0x3b, r24	; 59
+    //Enable global interrupt
+    sei();
+  8a:	78 94       	sei
+    /* Replace with your application code */
+    while (1)
+    {
+	    CLR_PIN(PORTD, 5);
+  8c:	82 b3       	in	r24, 0x12	; 18
+  8e:	8f 7d       	andi	r24, 0xDF	; 223
+  90:	82 bb       	out	0x12, r24	; 18
+	    CLR_PIN(PORTD, 6);
+  92:	82 b3       	in	r24, 0x12	; 18
+  94:	8f 7b       	andi	r24, 0xBF	; 191
+  96:	82 bb       	out	0x12, r24	; 18
+	    CLR_PIN(PORTD, 7);
+  98:	82 b3       	in	r24, 0x12	; 18
+  9a:	8f 77       	andi	r24, 0x7F	; 127
+  9c:	82 bb       	out	0x12, r24	; 18
+  9e:	f6 cf       	rjmp	.-20     	; 0x8c <main+0x20>
 
-0000006e <_exit>:
-  6e:	f8 94       	cli
+000000a0 <_exit>:
+  a0:	f8 94       	cli
 
-00000070 <__stop_program>:
-  70:	ff cf       	rjmp	.-2      	; 0x70 <__stop_program>
+000000a2 <__stop_program>:
+  a2:	ff cf       	rjmp	.-2      	; 0xa2 <__stop_program>

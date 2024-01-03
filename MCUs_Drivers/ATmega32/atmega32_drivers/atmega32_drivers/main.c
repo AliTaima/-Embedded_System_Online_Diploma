@@ -5,7 +5,7 @@
  * Author : Ali Mohamed Taima
  */ 
 
-#include <avr/io.h>
+#include "Application/application.h"
 
 
 int main(void)
@@ -13,6 +13,7 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
-    }
+		
+   } 
 }
 

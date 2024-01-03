@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "b:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson2/Section_lcd_keypad_drivers/lcd_keypad_drivers/lcd_keypad_drivers",
+      "program": "b:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson2/Section_lcd_keypad_drivers/lcd_keypad_drivers/lcd_keypad_drivers/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+/*
+ * Section_Atmega32_ext_interrupt.c
+ *
+ * Created: 11/29/2023 12:00:24 PM
+ * Author : Ali Mohamed Taima
+ */ 
+
+#include "application.h"
+
+int main(void)
+{
+    /* Replace with your application code */
+    while (1) 
+    {
+		
+    }
+}
+
