@@ -57,3 +57,10 @@ void delay_5s(void)
 	TIMER_start(256, 77);
 	TIMER_stop();
 }
+void delay_ms(uint32_t t)
+{
+	uint32_t i, j;
+
+	for(i = 0;i<t;i++)
+		for(j = 0; j<255; j++);
+}

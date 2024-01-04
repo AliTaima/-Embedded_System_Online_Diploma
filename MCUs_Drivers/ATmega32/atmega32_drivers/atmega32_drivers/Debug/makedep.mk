@@ -8,9 +8,21 @@ ECUAL\BUTTON\button.c
 
 ECUAL\BUTTON\test.c
 
+ECUAL\KEYPAD\keypad.c
+
+ECUAL\KEYPAD\test_keypad.c
+
+ECUAL\LCD\lcd.c
+
+ECUAL\LCD\test_lcd.c
+
 ECUAL\LED\led.c
 
 ECUAL\LED\test.c
+
+ECUAL\_7segment\test_7segment.c
+
+ECUAL\_7segment\_7segment.c
 
 main.c
 

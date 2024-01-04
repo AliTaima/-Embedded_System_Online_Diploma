@@ -35,8 +35,11 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../Application \
 ../ECUAL \
+../ECUAL/KEYPAD/ \
+../ECUAL/LCD/ \
 ../ECUAL/LED \
 ../ECUAL/BUTTON \
+../ECUAL/_7segment/ \
 ../MCAL \
 ../MCAL/DIO \
 ../MCAL/INTERRUPT \
@@ -49,8 +52,14 @@ C_SRCS +=  \
 ../Application/application.c \
 ../ECUAL/BUTTON/button.c \
 ../ECUAL/BUTTON/test.c \
+../ECUAL/KEYPAD/keypad.c \
+../ECUAL/KEYPAD/test_keypad.c \
+../ECUAL/LCD/lcd.c \
+../ECUAL/LCD/test_lcd.c \
 ../ECUAL/LED/led.c \
 ../ECUAL/LED/test.c \
+../ECUAL/_7segment/test_7segment.c \
+../ECUAL/_7segment/_7segment.c \
 ../main.c \
 ../MCAL/DIO/dio.c \
 ../MCAL/DIO/test.c \
@@ -70,8 +79,14 @@ OBJS +=  \
 Application/application.o \
 ECUAL/BUTTON/button.o \
 ECUAL/BUTTON/test.o \
+ECUAL/KEYPAD/keypad.o \
+ECUAL/KEYPAD/test_keypad.o \
+ECUAL/LCD/lcd.o \
+ECUAL/LCD/test_lcd.o \
 ECUAL/LED/led.o \
 ECUAL/LED/test.o \
+ECUAL/_7segment/test_7segment.o \
+ECUAL/_7segment/_7segment.o \
 main.o \
 MCAL/DIO/dio.o \
 MCAL/DIO/test.o \
@@ -84,8 +99,14 @@ OBJS_AS_ARGS +=  \
 Application/application.o \
 ECUAL/BUTTON/button.o \
 ECUAL/BUTTON/test.o \
+ECUAL/KEYPAD/keypad.o \
+ECUAL/KEYPAD/test_keypad.o \
+ECUAL/LCD/lcd.o \
+ECUAL/LCD/test_lcd.o \
 ECUAL/LED/led.o \
 ECUAL/LED/test.o \
+ECUAL/_7segment/test_7segment.o \
+ECUAL/_7segment/_7segment.o \
 main.o \
 MCAL/DIO/dio.o \
 MCAL/DIO/test.o \
@@ -98,8 +119,14 @@ C_DEPS +=  \
 Application/application.d \
 ECUAL/BUTTON/button.d \
 ECUAL/BUTTON/test.d \
+ECUAL/KEYPAD/keypad.d \
+ECUAL/KEYPAD/test_keypad.d \
+ECUAL/LCD/lcd.d \
+ECUAL/LCD/test_lcd.d \
 ECUAL/LED/led.d \
 ECUAL/LED/test.d \
+ECUAL/_7segment/test_7segment.d \
+ECUAL/_7segment/_7segment.d \
 main.d \
 MCAL/DIO/dio.d \
 MCAL/DIO/test.d \
@@ -112,8 +139,14 @@ C_DEPS_AS_ARGS +=  \
 Application/application.d \
 ECUAL/BUTTON/button.d \
 ECUAL/BUTTON/test.d \
+ECUAL/KEYPAD/keypad.d \
+ECUAL/KEYPAD/test_keypad.d \
+ECUAL/LCD/lcd.d \
+ECUAL/LCD/test_lcd.d \
 ECUAL/LED/led.d \
 ECUAL/LED/test.d \
+ECUAL/_7segment/test_7segment.d \
+ECUAL/_7segment/_7segment.d \
 main.d \
 MCAL/DIO/dio.d \
 MCAL/DIO/test.d \
@@ -157,6 +190,34 @@ ECUAL/BUTTON/test.o: ../ECUAL/BUTTON/test.c
 	@echo Finished building: $<
 	
 
+ECUAL/KEYPAD/keypad.o: ../ECUAL/KEYPAD/keypad.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/KEYPAD/test_keypad.o: ../ECUAL/KEYPAD/test_keypad.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/LCD/lcd.o: ../ECUAL/LCD/lcd.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/LCD/test_lcd.o: ../ECUAL/LCD/test_lcd.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ECUAL/LED/led.o: ../ECUAL/LED/led.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -165,6 +226,20 @@ ECUAL/LED/led.o: ../ECUAL/LED/led.c
 	
 
 ECUAL/LED/test.o: ../ECUAL/LED/test.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/_7segment/test_7segment.o: ../ECUAL/_7segment/test_7segment.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/_7segment/_7segment.o: ../ECUAL/_7segment/_7segment.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

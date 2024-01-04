@@ -135,6 +135,24 @@
     <Compile Include="ECUAL\BUTTON\test.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\KEYPAD\keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\KEYPAD\keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\KEYPAD\test_keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD\test_lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\LED\led.c">
       <SubType>compile</SubType>
     </Compile>
@@ -142,6 +160,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\LED\test.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\_7segment\test_7segment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\_7segment\_7segment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\_7segment\_7segment.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -184,8 +211,11 @@
   <ItemGroup>
     <Folder Include="Application" />
     <Folder Include="ECUAL" />
+    <Folder Include="ECUAL\KEYPAD\" />
+    <Folder Include="ECUAL\LCD\" />
     <Folder Include="ECUAL\LED" />
     <Folder Include="ECUAL\BUTTON" />
+    <Folder Include="ECUAL\_7segment\" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\DIO" />
     <Folder Include="MCAL\INTERRUPT" />
