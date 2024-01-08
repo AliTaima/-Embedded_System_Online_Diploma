@@ -1,6 +1,0 @@
-Stm32_F103C6_Drivers/GPIO/Stm32_F103C6_GPIO_Driver.o: \
- ../Stm32_F103C6_Drivers/GPIO/Stm32_F103C6_GPIO_Driver.c \
- B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_GPIO_Driver.h \
- B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h
-B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103C6_GPIO_Driver.h:
-B:/Embedded_Systems_Online_Diploma/Unit_7_Essential_Peripherals/unit7_lesson4_Ext-Interrupt/Drivers/Stm32_F103C6_Drivers/inc/Stm32_F103x6.h:
