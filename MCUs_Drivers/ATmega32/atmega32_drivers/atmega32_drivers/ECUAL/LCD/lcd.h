@@ -23,6 +23,12 @@
 //To control four or eight bit modes
 //#define	EIGHT_BIT_MODE
 #define	FOUR_BIT_MODE
+/*
+	In case of four bit mode the 4 pins of data must be connected to the last four pins 
+	of the selected port (last nipple)
+	--> for example we selected data port is PORTA, so we should connect pins to pin4:7
+	in PORTA
+*/
 
 
 #define LCD_REGISTER_SELECT_PIN					(0)

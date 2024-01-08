@@ -9,6 +9,8 @@ void LCD_Init(void)
 {
 	LCD_Control_Dir |= (1<<RS|1<<EN|1<<RW);//make control pins as output
 	LCD_Control_Port &= (1<<RS|1<<EN|1<<RW); //make sure that output is 0
+	//make data port as output
+	LCD_Data_Dir = 0xFF;
 	delay_ms(20);
 	
 	#ifdef EIGHT_BIT_MODE
