@@ -51,4 +51,15 @@
 #define MCUCSR	*(volatile uint8_t *)(IO_BASE + 0x34) // 8-bit register
 #define GIFR	*(volatile uint8_t *)(IO_BASE + 0x3A)   // 8-bit register
 #define GICR	*(volatile uint8_t *)(IO_BASE + 0x3B)   // 8-bit register
+
+/************************************************************************/
+/*					UART Registers                                      */
+/************************************************************************/
+#define UDR		*(volatile uint8_t *)(IO_BASE + 0x0C)
+#define UCSRA	*(volatile uint8_t *)(IO_BASE + 0x0B)
+#define UCSRB	*(volatile uint8_t *)(IO_BASE + 0x0A)
+#define UCSRC	*(volatile uint8_t *)(IO_BASE + 0x20)
+#define UBRRL	*(volatile uint8_t *)(IO_BASE + 0x09)
+#define UBRRH	*(volatile uint8_t *)(IO_BASE + 0x20)
+
 #endif /* REGISTERS_H_ */

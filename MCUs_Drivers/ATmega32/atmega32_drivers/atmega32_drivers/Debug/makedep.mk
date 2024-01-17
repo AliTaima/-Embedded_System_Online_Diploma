@@ -38,3 +38,5 @@ MCAL\TIMER\test.c
 
 MCAL\TIMER\timer.c
 
+MCAL\UART\uart.c
+

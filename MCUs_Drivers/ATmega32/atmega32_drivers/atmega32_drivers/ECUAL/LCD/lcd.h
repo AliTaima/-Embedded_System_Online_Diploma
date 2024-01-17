@@ -13,8 +13,8 @@
 
 #define LCD_Data_Port		PORTC
 #define LCD_Data_Dir		DDRC
-#define LCD_Control_Port	PORTD
-#define LCD_Control_Dir		DDRD
+#define LCD_Control_Port	PORTA
+#define LCD_Control_Dir		DDRA
 #define EN					2
 #define RW					1
 #define RS					0

@@ -12,7 +12,8 @@
 // Including led and button modules from lower layer
 #include "../ECUAL/LED/led.h"
 #include "../ECUAL/Button/button.h"
-
+#include "../MCAL/UART/uart.h"
+#include "../ECUAL/LCD/lcd.h"
 // enum for traffic light colors
 typedef enum EN_button_color_t
 {

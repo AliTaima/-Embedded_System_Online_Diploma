@@ -44,6 +44,7 @@ SUBDIRS :=  \
 ../MCAL/DIO \
 ../MCAL/INTERRUPT \
 ../MCAL/TIMER \
+../MCAL/UART/ \
 ../Utilities
 
 
@@ -66,7 +67,8 @@ C_SRCS +=  \
 ../MCAL/INTERRUPT/interrupts.c \
 ../MCAL/INTERRUPT/test.c \
 ../MCAL/TIMER/test.c \
-../MCAL/TIMER/timer.c
+../MCAL/TIMER/timer.c \
+../MCAL/UART/uart.c
 
 
 PREPROCESSING_SRCS += 
@@ -93,7 +95,8 @@ MCAL/DIO/test.o \
 MCAL/INTERRUPT/interrupts.o \
 MCAL/INTERRUPT/test.o \
 MCAL/TIMER/test.o \
-MCAL/TIMER/timer.o
+MCAL/TIMER/timer.o \
+MCAL/UART/uart.o
 
 OBJS_AS_ARGS +=  \
 Application/application.o \
@@ -113,7 +116,8 @@ MCAL/DIO/test.o \
 MCAL/INTERRUPT/interrupts.o \
 MCAL/INTERRUPT/test.o \
 MCAL/TIMER/test.o \
-MCAL/TIMER/timer.o
+MCAL/TIMER/timer.o \
+MCAL/UART/uart.o
 
 C_DEPS +=  \
 Application/application.d \
@@ -133,7 +137,8 @@ MCAL/DIO/test.d \
 MCAL/INTERRUPT/interrupts.d \
 MCAL/INTERRUPT/test.d \
 MCAL/TIMER/test.d \
-MCAL/TIMER/timer.d
+MCAL/TIMER/timer.d \
+MCAL/UART/uart.d
 
 C_DEPS_AS_ARGS +=  \
 Application/application.d \
@@ -153,7 +158,8 @@ MCAL/DIO/test.d \
 MCAL/INTERRUPT/interrupts.d \
 MCAL/INTERRUPT/test.d \
 MCAL/TIMER/test.d \
-MCAL/TIMER/timer.d
+MCAL/TIMER/timer.d \
+MCAL/UART/uart.d
 
 OUTPUT_FILE_PATH +=atmega32_drivers.elf
 
@@ -289,6 +295,13 @@ MCAL/TIMER/test.o: ../MCAL/TIMER/test.c
 	
 
 MCAL/TIMER/timer.o: ../MCAL/TIMER/timer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART/uart.o: ../MCAL/UART/uart.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
