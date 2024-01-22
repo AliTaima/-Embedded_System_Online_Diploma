@@ -1,4 +1,0 @@
-../MCAL/Stm32_F103C6_EXTI_Driver.c:26:6:Update_EXTI	24	static
-../MCAL/Stm32_F103C6_EXTI_Driver.c:61:6:MCAL_EXTI_GPIO_DeInit	4	static
-../MCAL/Stm32_F103C6_EXTI_Driver.c:96:6:MCAL_EXTI_GPIO_Init	16	static
-../MCAL/Stm32_F103C6_EXTI_Driver.c:110:6:MCAL_EXTI_GPIO_Update	16	static
