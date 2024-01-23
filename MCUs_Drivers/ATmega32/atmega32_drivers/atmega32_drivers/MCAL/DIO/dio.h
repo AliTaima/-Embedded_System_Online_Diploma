@@ -18,13 +18,13 @@
 /* define helpful macros                                               */
 /************************************************************************/
 // set pin macro(make PIN_NO = 1)
-#define SET_PIN(X, PIN_NO) X |= (1 << PIN_NO)
+#define SET_PIN(reg, PIN_NO) reg |= (1 << PIN_NO)
 // clear pin macro(make PIN_NO = 0)
-#define CLR_PIN(X, PIN_NO) X &= ~(1 << PIN_NO)
+#define CLR_PIN(reg, PIN_NO) reg &= ~(1 << PIN_NO)
 // toggle pin macro(make PIN_NO = 0 then PIN_NO = 1 and so on...)
-#define TOGGLE_PIN(X, PIN_NO) X ^= (1 << PIN_NO)
-// get status of the pin(read pin) to see it high or low(X--> the value, Y--> the PIN_name)for example(*value, PINA, PIN4)
-#define GET_STATE(X, Y, PIN_NO) X = (Y & (1 << PIN_NO)) >> PIN_NO
+#define TOGGLE_PIN(reg, PIN_NO) reg ^= (1 << PIN_NO)
+// get status of the pin(read pin) to see it high or low( reg--> the PIN_name)for example(PINA, PIN4)
+#define READ_PIN(reg, PIN_NO) (reg & (1 << PIN_NO)) >> PIN_NO
 /************************************************************************/
 /*							Typedefs						            */
 /************************************************************************/

@@ -36,7 +36,52 @@ void UART_Send(char data)
 	
 }
 char UART_Receive(void)
-{
-	while (!(UCSRA & (1<<7)));
+{  
+	while (!READ_PIN(UCSRA, 7));
 	return UDR;
+}
+
+void UART_Send_Str(uint8_t* str)
+{
+	uint8_t i;
+	for(i = 0;i<str[i];i++)
+	{
+		UART_Send(str[i]);
+	}
+	UART_Send(DefaultStop);
+}
+
+void UART_Rec_Str(uint8_t* buf)
+{
+	 uint8_t i = 0;
+	 buf[i] = UART_Receive();
+	 while(buf[i] != DefaultStop)
+	 {
+		 i++;
+		 buf[i] = UART_Receive();
+	 }
+	 buf[i] = '\0';
+}
+
+uint8_t UART_Rec_Periodic_Check(uint8_t* Pdata) 
+{
+	//this func will help us to make other things 
+	//while there is no data on the rx, so we can check every 
+	//some period of time
+	if(READ_PIN(UCSRA, 7))
+	{
+		*Pdata = UDR;
+		return 1;
+	}
+	return 0;
+}
+
+void UART_Send_NoBlock(uint8_t data)
+{
+	UDR = data;
+}
+
+uint8_t UART_Rec_NoBlock(void)
+{
+	return UDR ;
 }
